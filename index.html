@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>wangEditor by wangfupeng1988</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>wangEditor</h1>
+        <h2>wangEditor —— 轻量级web富文本框</h2>
+        <a href="https://github.com/wangfupeng1988/wangEditor" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a id="0-本次更新说明" class="anchor" href="#0-%E6%9C%AC%E6%AC%A1%E6%9B%B4%E6%96%B0%E8%AF%B4%E6%98%8E" aria-hidden="true"><span class="octicon octicon-link"></span></a>0. 本次更新说明</h1>
+
+<p>更新时间为：2015-03-22，更新版本为1.3版。本次更新的主要内容：<br></p>
+
+<ul>
+<li>对代码做了一次彻底的重构，更加面向对象的编程；</li>
+<li>重构UI界面，增加易用性；</li>
+<li>增加插入简洁代码的功能；</li>
+<li><p>支持一个页面生成多个编辑器；</p></li>
+</ul>
+
+<h1>
+<a id="1-介绍" class="anchor" href="#1-%E4%BB%8B%E7%BB%8D" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. 介绍</h1>
+
+<p><b>wangEditor——轻量级web富文本编辑器，配置方便，使用简单</b>。支持IE7+浏览器。
+<img src="http://images.cnitblog.com/blog2015/138012/201503/242157460995330.png" alt=""></p>
+
+<h1>
+<a id="2-如何使用" class="anchor" href="#2-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. 如何使用？</h1>
+
+<p>引用wangEditor.css、jquery.js和wangEditor.js之后，一行代码即可把textarea变为富文本框，简单易用。</p>
+
+<div class="highlight highlight-javascript"><pre>$(<span class="pl-k">function</span>(){
+    $(<span class="pl-s"><span class="pl-pds">'</span>#textarea1<span class="pl-pds">'</span></span>).wangEditor();
+
+    <span class="pl-c">//想要获取编辑框的内容，只需要取得textarea的内容即可</span>
+    <span class="pl-k">var</span> html <span class="pl-k">=</span> $(<span class="pl-s"><span class="pl-pds">'</span>#textarea1<span class="pl-pds">'</span></span>).val();
+});</pre></div>
+
+<p>如果想要在一个页面创建多个富文本编辑器，也很简单（源码中<code>demo-multi-text.html</code>页面有演示）。</p>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-c">//先在html中定义两个textarea，然后：</span>
+$(<span class="pl-k">function</span>(){
+    $(<span class="pl-s"><span class="pl-pds">'</span>#textarea1<span class="pl-pds">'</span></span>).wangEditor();
+    $(<span class="pl-s"><span class="pl-pds">'</span>#textarea2<span class="pl-pds">'</span></span>).wangEditor();
+});</pre></div>
+
+<p>在基本应用的基础上，wangEditor还支持自定义配置：</p>
+
+<div class="highlight highlight-javascript"><pre>$(<span class="pl-s"><span class="pl-pds">'</span>#textarea1<span class="pl-pds">'</span></span>).wangEditor({
+    <span class="pl-s"><span class="pl-pds">'</span>$initContent<span class="pl-pds">'</span></span><span class="pl-k">:</span> ...    <span class="pl-c">//配置要初始化的内容</span>
+    <span class="pl-s"><span class="pl-pds">'</span>menuConfig<span class="pl-pds">'</span></span><span class="pl-k">:</span> ...      <span class="pl-c">//配置要显示的菜单（其他的隐藏）</span>
+    <span class="pl-s"><span class="pl-pds">'</span>onchange<span class="pl-pds">'</span></span><span class="pl-k">:</span> ...        <span class="pl-c">//配置onchange事件</span>
+});</pre></div>
+
+<p>具体的配置说明，可下载源码，源码中相应的demo页面有详细使用说明。</p>
+
+<ul>
+<li>
+<code>demo.html</code> （demo演示）</li>
+<li>
+<code>demo-basic.html</code> （基本配置说明）</li>
+<li>
+<code>demo-initContent.html</code> （配置初始化时要显示的内容）</li>
+<li>
+<code>demo-menuConfig.html</code> （配置要显示的菜单按钮，其他的隐藏）</li>
+<li><p><code>demo-onchange.html</code> （配置onchange事件）</p></li>
+</ul>
+
+<h1>
+<a id="3-自定义主题颜色" class="anchor" href="#3-%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. 自定义主题颜色</h1>
+
+<p>wangEditor默认的主题颜色为深灰色，你也可以自定义符合网站主题风格的颜色。<br>
+找到<code>css/wangEditor-1.3.less</code>文件，搜索<code>“begin：颜色配置”</code>关键字，然后你就可以找到wangEditor的所有颜色配置。在这里自由发挥的修改吧！<br>
+<strong>最后不要忘记，把<code>less</code>编译成<code>css</code></strong>。</p>
+
+<div class="highlight highlight-less"><pre><span class="pl-c">//-----------------------------------begin：颜色配置-----------------------------------</span>
+
+<span class="pl-c">//开发者可自定义以下颜色。通过定义颜色，可实现不同的主题风格。</span>
+
+<span class="pl-smi">@editor-container-border-color</span>:<span class="pl-c1">#ccc</span>;        <span class="pl-c">//整个编辑器外边框的颜色</span>
+
+<span class="pl-smi">@fore-color</span>:<span class="pl-c1">#505050</span>;                        <span class="pl-c">//默认字体颜色、按钮颜色</span>
+<span class="pl-smi">@reverse-color</span>:<span class="pl-c1">#fff</span>;                        <span class="pl-c">//反转后的字体颜色、按钮颜色（如按钮tooltip中的字体颜色）</span>
+<span class="pl-smi">@selected-bg-color</span>:<span class="pl-c1">#aec5e6</span>;                 <span class="pl-c">//按钮选中时的背景色</span>
+
+<span class="pl-smi">@btn-container-bg-color</span>:<span class="pl-c1">#f3f3f3</span>;            <span class="pl-c">//菜单按钮容器的背景色</span>
+<span class="pl-smi">@btn-container-border-color</span>:<span class="pl-c1">#d2d4d1</span>;        <span class="pl-c">//菜单按钮容器的边框颜色</span>
+
+<span class="pl-smi">@txt-container-bg-color</span>:<span class="pl-c1">#dfdfdf</span>;            <span class="pl-c">//编辑框容器的背景色</span>
+<span class="pl-smi">@txt-border-color</span>:<span class="pl-c1">#a8aaa7</span>;                  <span class="pl-c">//编辑框边框颜色</span>
+<span class="pl-smi">@txt-bg-color</span>:<span class="pl-c1">#fff</span>;                         <span class="pl-c">//编辑框背景色</span>
+<span class="pl-c">//-----------------------------------end:颜色配置-----------------------------------</span></pre></div>
+
+<h1>
+<a id="4-不喜欢word风格" class="anchor" href="#4-%E4%B8%8D%E5%96%9C%E6%AC%A2word%E9%A3%8E%E6%A0%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. 不喜欢word风格？</h1>
+
+<p>wangEditor默认的编辑风格类似于 office word 的样子。如果不喜欢，只需要注释掉一下<code>less</code>中的两个两个样式即可。<br>
+找到<code>css/wangEditor-1.3.less</code>文件，搜索<code>“begin: word样式”</code>关键字，然后将其中的内容注释掉即可。<br>
+<strong>最后不要忘记，把<code>less</code>编译成<code>css</code></strong>。</p>
+
+<div class="highlight highlight-less"><pre><span class="pl-c">//---------begin: word样式-----------</span>
+<span class="pl-c1">margin</span>:<span class="pl-c1">20</span><span class="pl-k">px</span><span class="pl-c1"> 40</span><span class="pl-k">px</span>; 
+<span class="pl-c1">border</span>:<span class="pl-c1">1</span><span class="pl-k">px</span> <span class="pl-c1">solid</span> <span class="pl-smi">@txt-border-color</span>;
+<span class="pl-c">//---------end: word样式-----------</span></pre></div>
+
+<h1>
+<a id="5-交流" class="anchor" href="#5-%E4%BA%A4%E6%B5%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. 交流</h1>
+
+<p>交流QQ群：<b>164999061</b> <br>
+二次开发联系：<b>wangfupeng1988#163.com（#-&gt;@）</b></p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/wangfupeng1988/wangEditor/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/wangfupeng1988/wangEditor/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/wangfupeng1988/wangEditor"></a> is maintained by <a href="https://github.com/wangfupeng1988">wangfupeng1988</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
